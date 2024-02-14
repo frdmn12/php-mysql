@@ -1,9 +1,14 @@
 <?php
 
-$db_host = "localhost:3308";
-$db_user = "root";
-$db_pass = "";
-$db_name = "businessdb";
+require_once __DIR__ . "/../vendor/autoload.php";
+// Looing for .env at the root directory
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ );
+$dotenv->load();
+
+$db_host = $_ENV["HOST"];
+$db_user = $_ENV["USER"];
+$db_pass = $_ENV["PASS"];
+$db_name =  $_ENV["DB"];
 
 try {
     //code...
